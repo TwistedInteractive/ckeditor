@@ -17,6 +17,7 @@
 		}
 		
 		function run($string) {
+            $string = preg_replace("/&nbsp;/i", ' ', $string);
 			return $string;
 		}
 
