@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
 			// width : objectWidth,			
             language : 'en',            
             height : this.offsetHeight,
-            removePlugins : 'font,entities,styles',
+            removePlugins : 'font,styles',
             extraPlugins : 'xmlentities',
             // uiColor : '#d6d6c7',
             startupOutlineBlocks : true,
@@ -38,6 +38,7 @@ jQuery(document).ready(function () {
             ],
             forcePasteAsPlainText: true,
             format_tags: 'p;h1;h2;h3',
+            entities_processNumerical: 'force',
             filebrowserBrowseUrl: Symphony.ADMIN + '/extension/ckeditor/filebrowser/'
         };
 		
