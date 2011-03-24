@@ -19,7 +19,8 @@ jQuery(document).ready(function () {
 		// Set the configurationdata:
         var configurationData = {
 			// width : objectWidth,			
-            language : 'en',            
+            language : 'en',
+            skin:'chris',
             height : this.offsetHeight,
             removePlugins : 'font,styles',
             extraPlugins : 'xmlentities',
