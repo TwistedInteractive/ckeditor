@@ -19,7 +19,8 @@ jQuery(document).ready(function () {
 		// Set the configurationdata:
         var configurationData = {
 			// width : objectWidth,			
-            language : 'en',            
+            language : 'en',
+            skin:'chris',
             height : this.offsetHeight,
             removePlugins : 'font,styles',
             extraPlugins : 'xmlentities',
@@ -34,7 +35,7 @@ jQuery(document).ready(function () {
                 ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
                 ['Image'],['Link', 'Unlink'],
                 ['HorizontalRule'],
-                ['Source', 'Maximize'],['Youtube']
+                ['Source', 'Maximize']
             ],
             forcePasteAsPlainText: true,
             format_tags: 'p;h1;h2;h3',

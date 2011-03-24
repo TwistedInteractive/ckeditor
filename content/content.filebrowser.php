@@ -30,19 +30,7 @@
 			}
 			
 			$body = new XMLElement('div', '', array('id'=>'body'));
-			
-			// Check if JIT is installed:
-			$extensionManager = new ExtensionManager($this);
-			$status = $extensionManager->fetchStatus('jit_image_manipulation');
-			
-			if($status == EXTENSION_ENABLED)
-			{
-				$script = 'var jitAvailable = true;';
-			} else {
-				$script = 'var jitAvailable = false;';
-			}
-			$body->appendChild(new XMLElement('script', $script, array('type'=>'text/javascript')));
-			
+
 			$left = new XMLElement('div', '', array('class'=>'left'));
 			$right = new XMLElement('div', '', array('class'=>'right'));
 			$left->appendChild(new XMLElement('h3', __('Section')));

@@ -5,12 +5,10 @@
 		function about(){
 			return array(
 				'name' => 'CKEditor',
-				'version' => '1.0',
-				'release-date' => '2010-11-01',
+				'version' => '1.2.1',
+				'release-date' => '2011-03-24',
 				'author' => array(
-					'name' => 'Tony Arnold',
-					'website' => 'http://thecocoabots.com',
-					'email' => 'tony@thecocoabots.com'
+					'name'     => '<a href="http://thecocoabots.com">Tony Arnold</a>, <a href="http://gielberkers.com">Giel Berkers</a>'
 				),
 				'description' => 'Includes CKEditor, a web-based XHTML editor developed by Frederico Knabben.'
 			);

@@ -23,18 +23,6 @@ $(function(){
 	
 	// Default: activate the first category:
 	$("div.left a:first").click();
-	
-	if(jitAvailable)
-	{
-		$(document).mousemove(function(e){
-			if(document.getElementById("thumb")) {
-				if(document.getElementById("thumb").style.display != 'none')
-				{
-					$("#thumb").css({left: e.pageX + 50, top: e.pageY});
-				}
-			}
-		});
-	}
 });
 
 function loadRightPanel(url)
@@ -51,7 +39,7 @@ function loadRightPanel(url)
 			$("a:first", this).click();
 		});
 		// Click on an anchor
-		$("a", $("div.right tr")).click(function(){
+		$("a", $("div.items")).click(function(){
 			// Send URL to CKEditor:
 			window.opener.CKEDITOR.tools.callFunction(funcNum, $(this).attr("href"));
 			window.close();
@@ -65,16 +53,6 @@ function loadRightPanel(url)
 			});
 			return false;
 		});
-		// check if there is an image here:
-		if(jitAvailable) {
-			$("td.image").hover(function(){
-				$("#thumb").show();
-				var img = $("a", this).attr("href").replace('/workspace/', '');
-				$("#thumb").html('<img src="' + Symphony.WEBSITE + '/image/2/80/60/5/' + img + '" width="80" height="60" />');
-			}, function(){
-				$("#thumb").hide();
-			});
-		}
 	});
 }
 
