@@ -92,7 +92,7 @@
                         }
 					}
 
-					$form->appendChild(new XMLElement('a', __('create new'), array('href'=>'/symphony/publish/'.$section->get('handle').'/new/', 'class'=>'create button')));
+					$form->appendChild(new XMLElement('a', __('create new'), array('href'=>SYMPHONY_URL.'/publish/'.$section->get('handle').'/new/', 'class'=>'create button')));
 					$form->appendChild(new XMLElement('h3', $section->get('name')));
 					$form->appendChild($div);
 					$form->appendChild(new XMLElement('div', '', array('id'=>'thumb')));
