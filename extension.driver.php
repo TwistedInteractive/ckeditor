@@ -103,8 +103,11 @@
 		 */		 
  		protected $addedCKEditorHeaders = false;
 	
-		public function applyCKEditor($context) {		
-			if($context['field']->get('formatter') != 'ckeditor' && $context['field']->get('formatter') != 'ckeditor_compact') return;
+		public function applyCKEditor($context) {	
+
+			$format = $context['field']->get('text_formatter') == TRUE ? 'text_formatter' : 'formatter';
+
+			if(($context['field']->get($format) != 'ckeditor' && $context['field']->get($format) != 'ckeditor_compact')) return;
 			
 			if(!$this->addedCKEditorHeaders){
 				Administration::instance()->Page->addScriptToHead(URL . '/extensions/ckeditor/lib/ckeditor/ckeditor.js', 200, false);

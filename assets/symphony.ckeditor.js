@@ -3,6 +3,7 @@ if (typeof Symphony.ADMIN == "undefined") {
 }
 
 jQuery(document).ready(function () {
+
 	// See if there are any ckeditor textareas:
     jQuery('textarea.ckeditor, textarea.ckeditor_compact').each(function(index) {
         // Set the configurationdata:
@@ -64,6 +65,9 @@ jQuery(document).ready(function () {
             // Add a border:
             jQuery("label.ck_compact td.cke_contents").css({borderBottom: "1px solid #aaa"});
 		});
+
+		//Stop CKEditor creating another instance
+		jQuery(this).removeClass('ckeditor ckeditor_compact');
 
 		// Replace CKEditor instances:
         CKEDITOR.replace(objectName, configurationData);
