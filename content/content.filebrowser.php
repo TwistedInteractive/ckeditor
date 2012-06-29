@@ -12,10 +12,10 @@
 			$this->setTitle('Symphony - File Browser for CKEditor');
             $this->addElementToHead(new XMLElement('meta', NULL, array('http-equiv' => 'Content-Type', 'content' => 'text/html; charset=UTF-8')), 0);
             $this->addElementToHead(new XMLElement('meta', NULL, array('http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge,chrome=1')), 1);
-			$this->addStylesheetToHead(URL . '/symphony/assets/basic.css', 'screen', 68);
-			$this->addStylesheetToHead(URL . '/symphony/assets/admin.css', 'screen', 69);
+			$this->addStylesheetToHead(URL . '/symphony/assets/css/symphony.css', 'screen', 68);
+			$this->addStylesheetToHead(URL . '/symphony/assets/css/admin.css', 'screen', 69);
 			$this->addStylesheetToHead(URL . '/extensions/ckeditor/assets/filebrowser.css', 'screen', 70);
-			$this->addScriptToHead(URL . '/symphony/assets/jquery.js', 50);
+			$this->addScriptToHead(URL . '/symphony/assets/js/jquery.js', 50);
 			$this->addScriptToHead(URL . '/extensions/ckeditor/assets/jquery.form.js', 51);
 			$this->addScriptToHead(URL . '/extensions/ckeditor/assets/filebrowser.js', 52);
 			$this->addHeaderToPage('Content-Type', 'text/html; charset=UTF-8');
