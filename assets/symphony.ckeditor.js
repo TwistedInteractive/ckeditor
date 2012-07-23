@@ -1,16 +1,17 @@
-var ck_configurationData = {};
-ck_configurationData.language = 'en';
-ck_configurationData.skin = 'chris';
-ck_configurationData.replaceByClassEnabled = false;
-ck_configurationData.forcePasteAsPlainText = true;
-ck_configurationData.format_tags = 'p;h1;h2;h3';
-ck_configurationData.entities_processNumerical = 'force';
-ck_configurationData.filebrowserBrowseUrl = Symphony.Context.get('root') + '/symphony/extension/ckeditor/filebrowser/';
-
 jQuery(document).ready(function () {
 
 	// See if there are any ckeditor textareas:
     jQuery('textarea.ckeditor, textarea.ckeditor_compact').each(function(index) {
+    
+    	var ck_configurationData = {};
+    	ck_configurationData.language = 'en';
+    	ck_configurationData.skin = 'chris';
+    	ck_configurationData.replaceByClassEnabled = false;
+    	ck_configurationData.forcePasteAsPlainText = true;
+    	ck_configurationData.format_tags = 'p;h1;h2;h3';
+    	ck_configurationData.entities_processNumerical = 'force';
+    	ck_configurationData.filebrowserBrowseUrl = Symphony.Context.get('root') + '/symphony/extension/ckeditor/filebrowser/';
+    	
         // Set the configurationdata:
         // Set the correct height and width:
 	    ck_configurationData.height = jQuery(this).height();
