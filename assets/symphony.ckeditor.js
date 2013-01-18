@@ -43,6 +43,7 @@ jQuery(document).ready(function () {
                 ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
                 ['Image'],['Link', 'Unlink'],
                 ['HorizontalRule'],
+                ['Templates'],
                 ['Source', 'Maximize']
             ];
 	        ck_configurationData.resize_enabled = true;
