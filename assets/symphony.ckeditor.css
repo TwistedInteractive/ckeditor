@@ -8,3 +8,8 @@ label div.cke_toolbox span {
 table.cke_editor td, table.cke_dialog td {
 	padding-left: 0;
 }
+
+/* Fixes for Symphony 2.3 & CKEditor 4 */
+table.cke_dialog .cke_dialog_contents .cke_dialog_contents_body > div > table > tbody > tr > td {
+	padding-left: 10px !important;
+}
