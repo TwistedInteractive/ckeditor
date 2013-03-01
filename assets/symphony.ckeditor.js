@@ -1,11 +1,9 @@
 jQuery(document).ready(function () {
+    // Disable auto initialisation of CKEditor
+    CKEDITOR.replaceClass = null;
+
     // Add custom styles:
     CKEDITOR.stylesSet.add('default', ckeditor_styles);
-
-    for(var name in CKEDITOR.instances)
-    {
-        CKEDITOR.instances[name].destroy();
-    }
 
     // See if there are any ckeditor textareas:
     jQuery('textarea.ckeditor, textarea.ckeditor_compact').each(function(index) {
