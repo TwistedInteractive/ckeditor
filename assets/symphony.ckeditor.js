@@ -1,7 +1,4 @@
 jQuery(document).ready(function () {
-    // Disable auto initialisation of CKEditor
-    CKEDITOR.replaceClass = null;
-
     // Add custom styles:
     CKEDITOR.stylesSet.add('default', ckeditor_styles);
 
