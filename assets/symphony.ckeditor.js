@@ -1,3 +1,4 @@
+CKEDITOR.replaceClass = null;
 jQuery(document).ready(function () {
     // Add custom styles:
     CKEDITOR.stylesSet.add('default', ckeditor_styles);
