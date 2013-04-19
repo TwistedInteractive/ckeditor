@@ -3,7 +3,7 @@ jQuery(document).ready(function () {
     CKEDITOR.stylesSet.add('default', ckeditor_styles);
 
     // See if there are any ckeditor textareas:
-    jQuery('textarea[class^="ckeditor"]').each(function(index) {
+    jQuery('textarea[class*="ckeditor"]').each(function(index) {
         var $this = jQuery(this);
 
         // Get the class name:
