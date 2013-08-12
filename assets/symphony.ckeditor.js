@@ -1,3 +1,5 @@
+CKEDITOR.replaceClass = null;
+
 jQuery(document).ready(function () {
     // Add custom styles:
     CKEDITOR.stylesSet.add('default', ckeditor_styles);
@@ -26,6 +28,7 @@ jQuery(document).ready(function () {
         ck_configurationData.format_tags = 'p;h1;h2;h3';
         ck_configurationData.entities_processNumerical = 'force';
         ck_configurationData.filebrowserBrowseUrl = Symphony.Context.get('root') + '/symphony/extension/ckeditor/filebrowser/';
+        ck_configurationData.contentsCss = [Symphony.Context.get('root') + '/extensions/ckeditor/lib/ckeditor/contents.css', Symphony.Context.get('root') + '/symphony/extension/ckeditor/css/'];
 
         // Set the correct height and width:
         ck_configurationData.height = jQuery(this).height();
