@@ -7,7 +7,7 @@
 			'email' => 'info@alexbirukov.ru',
 			'website' => 'http://alexbirukov.ru'
 		),
-		'release-date' => '2012-12-11'
+		'release-date' => '2013-10-10'
 	);
 
 	/**
@@ -36,6 +36,9 @@
 		'Section to get the entries from' => 
 		'Раздел из которого производить выбор записей',
 
+		'Styles: (one style per line: <code>h3.example { color: #f00; background: #0f0; }</code>) Class name is converted to name (h3.hello-world = Hello World).' => 
+		'Стили: (один стиль в строке: <code>h3.example { color: #f00; background: #0f0; }</code>) имя класса ковертируется в имя (h3.hello-world = Hello World).',
+
 		'There are no sections available. Please select which sections are permitted to use the CKEditor file upload feature in the Symphony System Preferences.' => 
 		'Не указаны доступные разделы. Пожалуйста, укажите в настройках системы разделы, которые доступны для загрузки файлов через CKEditor.',
 
@@ -45,7 +48,22 @@
 		'create new' => 
 		'добавить',
 
-		'Styles: (one style per line: <code>h3.example { color: #f00; background: #0f0; }</code>) Class name is converted to name (h3.hello-world = Hello World).' => 
-		'Стили: (один стиль в строке: <code>h3.example { color: #f00; background: #0f0; }</code>) имя класса ковертируется в имя (h3.hello-world = Hello World).',
+		'Plugin presets:' => 
+		'Пресеты',
+
+		'New Preset' => 
+		'Новый пресет',
+
+		'Toolbar' => 
+		'Панель инструментов',
+
+		'Plugins' => 
+		'Плагины',
+
+		'%s Enable resizing' => 
+		'%s Разрешить изменять размер поля',
+
+		'%s Show outline blocks' => 
+		'%s Отображать контуры блоков',
 
 	);
