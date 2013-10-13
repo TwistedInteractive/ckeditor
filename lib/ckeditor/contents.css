@@ -21,7 +21,9 @@ body
 .cke_editable
 {
 	font-size: 13px;
-	line-height: 1.6em;
+
+	/* Partial fix for http://dev.ckeditor.com/ticket/9998 - don't use line-heights */
+	/* line-height: 1.6em; */
 }
 
 blockquote
@@ -64,7 +66,9 @@ ol,ul,dl
 h1,h2,h3,h4,h5,h6
 {
 	font-weight: normal;
-	line-height: 1.2em;
+
+	/* Partial fix for http://dev.ckeditor.com/ticket/9998 - don't use line-heights */
+	/* line-height: 1.2em; */
 }
 
 hr
