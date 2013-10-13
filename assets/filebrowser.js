@@ -64,7 +64,7 @@ function buildForm(data)
 {
     var $ = jQuery;
     
-	$("div.right").html('<form method="post" action="' + urlNew + '"></form>');
+	$("div.right").html('<form method="post" action="' + urlNew + '" enctype="multipart/form-data"></form>');
 	$("div.field", data).each(function(){
 		$("div.right form").append('<div class="field">' + $(this).html() + '</div>');
 	});
