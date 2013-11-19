@@ -150,7 +150,7 @@
             $ol->appendChild($template);
 
             // Append all the fields:
-            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets');
+            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets`');
             $index   = 0;
             foreach($presets as $preset)
             {
