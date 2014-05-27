@@ -111,10 +111,21 @@
                 }
                 $this->sections[] = $a;
             }
-
+			
+			
+			/*
+			
+				LINK TEMPLATES
+				
+			*/
+			
             $fieldset->appendChild(new XMLElement('p', __('Link templates:'), array('class' => 'label')));
+            
+            $linkOuter = new XMLElement('div', null, array(
+				'class' => 'frame ckeditor-duplicator'
+			));
+			
             $ol = new XMLElement('ol');
-            $ol->setAttribute('class', 'ckeditor-duplicator');
 
             $templates = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_link_templates`;');
             if(!is_array($pages)) $pages = array($pages);
@@ -130,13 +141,23 @@
                 $duplicator = $this->__buildDuplicatorItem($page, NULL);
                 $ol->appendChild($duplicator);
             }
+			
+			$linkOuter->appendChild($ol);
+            $fieldset->appendChild($linkOuter);
 
-            $fieldset->appendChild($ol);
-
-            // Plugin presets:
+            /*
+            
+            	PLUGIN PRESENTS
+            	
+            */
             $fieldset->appendChild(new XMLElement('p', __('Plugin presets:'), array('class' => 'label')));
+            
+            $out_wrapper = new XMLElement('div', null, array(
+				'class' => 'frame ckeditor-duplicator',
+				'id' => 'ckeditor-duplicator'
+			));
+            
             $ol = new XMLElement('ol');
-            $ol->setAttribute('class', 'ckeditor-duplicator');
 
             // Create template:
             $template = new XMLElement('li', null, array('class' => 'template'));
@@ -150,11 +171,15 @@
             $ol->appendChild($template);
 
             // Append all the fields:
-            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets');
+            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets`');
             $index   = 0;
+            
             foreach($presets as $preset)
             {
                 $template = new XMLElement('li');
+                
+                $template->setAttribute('class','instance expanded');
+                
                 $template->appendChild(new XMLElement('header', '<h3>'.$preset['name'].'</h3>'));
                 $template->appendChild(Widget::Label(__('Name'), Widget::Input('ckeditor_presets['.$index.'][name]', $preset['name'])));
                 $template->appendChild(Widget::Label(__('Toolbar'),
@@ -172,8 +197,10 @@
                 $ol->appendChild($template);
                 $index++;
             }
-
-            $fieldset->appendChild($ol);
+			
+			
+			$out_wrapper->appendChild($ol);
+            $fieldset->appendChild($out_wrapper);
 
             // Styles:
             $fieldset->appendChild(new XMLElement('p', __('Styles: (one style per line: <code>h3.example { color: #f00; background: #0f0; }</code>) Class name is converted to name (h3.hello-world = Hello World).'), array('class'=>'label')));
@@ -345,20 +372,29 @@
                 ) ENGINE = MYISAM ;
             ");
 
-            // Fill default presets:
-            Symphony::Database()->query("
+            /* 
+            	Fill default presets
+            	
+            	Only if table is empty (prevents loads being created if installs fail
+            	
+            */
+            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets`');
+            if(count($presets) < 1){
+            	
+            	Symphony::Database()->query("
             INSERT INTO `tbl_ckeditor_presets` (`name`, `toolbar`, `plugins`, `resize`, `outline`) VALUES
 ('Minimal', '[''Bold'', ''Italic'', ''Strike'', ''-'', ''Subscript'', ''Superscript''],\r\n[''Link'', ''Unlink''],\r\n[''Source'']', NULL, NULL, NULL),
 ('Normal', '[''Bold'', ''Italic'', ''Strike'', ''-'', ''Subscript'', ''Superscript''],\r\n[''NumberedList'', ''BulletedList'', ''-'', ''Outdent'', ''Indent'', ''Blockquote''],\r\n[''Image'', ''oembed''],[''Link'', ''Unlink''],\r\n[''HorizontalRule''],\r\n[''Source'', ''Maximize'']', NULL, 1, 1),
 ('Full', '{ name: ''document'',    items : [ ''Source'',''-'',''Save'',''NewPage'',''DocProps'',''Preview'',''Print'',''-'',''Templates'' ] },\r\n    { name: ''clipboard'',   items : [ ''Cut'',''Copy'',''Paste'',''PasteText'',''PasteFromWord'',''-'',''Undo'',''Redo'' ] },\r\n    { name: ''editing'',     items : [ ''Find'',''Replace'',''-'',''SelectAll'',''-'',''SpellChecker'', ''Scayt'' ] },\r\n    { name: ''forms'',       items : [ ''Form'', ''Checkbox'', ''Radio'', ''TextField'', ''Textarea'', ''Select'', ''Button'', ''ImageButton'', ''HiddenField'' ] },\r\n    ''/'',\r\n    { name: ''basicstyles'', items : [ ''Bold'',''Italic'',''Underline'',''Strike'',''Subscript'',''Superscript'',''-'',''RemoveFormat'' ] },\r\n    { name: ''paragraph'',   items : [ ''NumberedList'',''BulletedList'',''-'',''Outdent'',''Indent'',''-'',''Blockquote'',''CreateDiv'',''-'',''JustifyLeft'',''JustifyCenter'',''JustifyRight'',''JustifyBlock'',''-'',''BidiLtr'',''BidiRtl'' ] },\r\n    { name: ''links'',       items : [ ''Link'',''Unlink'',''Anchor'' ] },\r\n    { name: ''insert'',      items : [ ''Image'',''Flash'',''Table'',''HorizontalRule'',''Smiley'',''SpecialChar'',''PageBreak'' ] },\r\n    ''/'',\r\n    { name: ''styles'',      items : [ ''Styles'',''Format'',''Font'',''FontSize'' ] },\r\n    { name: ''colors'',      items : [ ''TextColor'',''BGColor'' ] },\r\n    { name: ''tools'',       items : [ ''Maximize'', ''ShowBlocks'',''-'',''About'' ] }', NULL, 1, 1);
             ");
+            
+            }
 
             // Delete formatter files:
             $formatters = glob(EXTENSIONS.'/ckeditor/text-formatters/formatter.*.php');
             foreach($formatters as $formatter) { unlink($formatter); }
 
             // Create it all new:
-            $presets = Symphony::Database()->fetch('SELECT * FROM `tbl_ckeditor_presets`;');
             foreach($presets as $preset)
             {
                 unset($preset['id']);

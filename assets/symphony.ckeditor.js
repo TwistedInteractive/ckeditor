@@ -38,7 +38,8 @@ jQuery(document).ready(function () {
         {
             if(ckeditor_presets[i].class == myClassName)
             {
-                var info = ckeditor_presets[i];
+                //var info = ckeditor_presets[i];
+                var info = jQuery.extend(true, {}, ckeditor_presets[i]);
                 info.toolbar.unshift(formatBlock);
                 ck_configurationData.toolbar = info.toolbar;
                 ck_configurationData.resize_enabled = info.resize;
